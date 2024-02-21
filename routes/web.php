@@ -73,17 +73,17 @@ Route::domain('{account}.example.com')->group(function () {
     });
 });
 
-Route::middleware('auth')->group(function () {
-   Route::get('/user', [UserController::class, 'index']);
-   Route::get('/post', [PostController::class, 'index']);
-   Route::get('/event', [EventController::class, 'index']);
-});
+// Route::middleware('auth')->group(function () {
+//    Route::get('/user', [UserController::class, 'index']);
+//    Route::get('/post', [PostController::class, 'index']);
+//    Route::get('/event', [EventController::class, 'index']);
+// });
 
-Route::prefix('admin')->group(function () {
-    Route::get('/user', [UserController::class, 'index']);
-    Route::get('/post', [PostController::class, 'index']);
-    Route::get('/event', [EventController::class, 'index']);
-});
+// Route::prefix('admin')->group(function () {
+//     Route::get('/user', [UserController::class, 'index']);
+//     Route::get('/post', [PostController::class, 'index']);
+//     Route::get('/event', [EventController::class, 'index']);
+// });
 
 Route::redirect('/here', '/there');
 
@@ -103,3 +103,13 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 
 Route::get('/articles/{id}', [ArticleController::class, 'index']);
+
+Route::resource('photos', PhotoController::class);
+
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+]);
+
+Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+]);
