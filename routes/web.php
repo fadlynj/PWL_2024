@@ -35,9 +35,9 @@ Route::get('/about', function () {
     return '2241720149 Fadly Nugraha Jati';
 });
 
-Route::get('/user/{name}', function ($name) {
-    return 'Nama saya ' . $name;
-});
+// Route::get('/user/{name}', function ($name) {
+//     return 'Nama saya ' . $name;
+// });
 
 Route::get('/posts/{post}/comments/{comment}', function 
 ($postId, $commentId) {
@@ -46,4 +46,8 @@ Route::get('/posts/{post}/comments/{comment}', function
 
 Route::get('/articles/{id}', function ($id) {
     return 'Halaman artikel dengan ID ' . $id;
+});
+
+Route::get('/user/{name?}', function ($name = 'John') {
+    return 'Nama saya ' . $name;
 });
