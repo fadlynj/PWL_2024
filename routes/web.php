@@ -34,3 +34,16 @@ Route::get('/world', function () {
 Route::get('/about', function () {
     return '2241720149 Fadly Nugraha Jati';
 });
+
+Route::get('/user/{name}', function ($name) {
+    return 'Nama saya ' . $name;
+});
+
+Route::get('/posts/{post}/comments/{comment}', function 
+($postId, $commentId) {
+    return 'Pos ke-' . $postId . ' Komentar ke-' . $commentId;
+});
+
+Route::get('/articles/{id}', function ($id) {
+    return 'Halaman artikel dengan ID ' . $id;
+});
