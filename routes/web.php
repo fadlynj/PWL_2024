@@ -23,9 +23,9 @@ Route::get('/', function () {
     return 'Selamat Datang';
 });
 
-Route::get('/hello', function () {
-    return 'Hello World!';
-});
+// Route::get('/hello', function () {
+//     return 'Hello World!';
+// });
 
 Route::get('/world', function () {
     return 'World';
@@ -89,3 +89,17 @@ Route::redirect('/here', '/there');
 
 Route::view('/welcome', 'welcome');
 Route::view('/welcome', 'welcome', ['name' => 'Taylor']); 
+
+Route::get('/hello', [WelcomeController::class, 'hello']);
+
+// Route::get('/', [PageController::class, 'index']);
+
+// Route::get('/about', [PageController::class, 'about']);
+
+// Route::get('/articles/{id}', [PageController::class, 'articles']);
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/about', [AboutController::class, 'index']);
+
+Route::get('/articles/{id}', [ArticleController::class, 'index']);
